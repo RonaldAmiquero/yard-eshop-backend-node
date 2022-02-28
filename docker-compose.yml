@@ -4,8 +4,8 @@ services:
   postgres:
     image: postgres:13
     environment:
-      - POSTGRES_DB=my_store
-      - POSTGRES_USER=nico
+      - POSTGRES_DB=db_eshop
+      - POSTGRES_USER=ronald
       - POSTGRES_PASSWORD=admin123
     ports:
       - 5432:5432
@@ -39,5 +39,3 @@ services:
       - PMA_HOST=mysql
     ports:
       - 8080:80
-
-

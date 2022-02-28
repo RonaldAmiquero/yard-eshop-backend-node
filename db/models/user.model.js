@@ -1,6 +1,6 @@
-const { Model, DataTypes, Sequelize } = require('sequelize');
+const { Model, DataTypes, Sequelize } = require('sequelize')
 
-const USER_TABLE = 'users';
+const USER_TABLE = 'users'
 
 const UserSchema = {
   id: {
@@ -12,10 +12,15 @@ const UserSchema = {
   email: {
     allowNull: false,
     type: DataTypes.STRING,
-    unique: true,
+    unique: true
   },
   password: {
     allowNull: false,
+    type: DataTypes.STRING
+  },
+  recoveryToken: {
+    field: 'recovery_token',
+    allowNull: true,
     type: DataTypes.STRING
   },
   role: {
@@ -36,7 +41,7 @@ class User extends Model {
     this.hasOne(models.Customer, {
       as: 'customer',
       foreignKey: 'userId'
-    });
+    })
   }
 
   static config(sequelize) {
@@ -48,6 +53,5 @@ class User extends Model {
     }
   }
 }
-
 
 module.exports = { USER_TABLE, UserSchema, User }
